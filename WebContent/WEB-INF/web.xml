@@ -11,6 +11,15 @@
   </servlet>
   <servlet-mapping>
   	<servlet-name>AddServlet</servlet-name>
-  	<url-pattern>/add</url-pattern>
+  	<url-pattern>/addAndSquare</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>SquareServlet</servlet-name>
+  	<servlet-class>com.codeyogi.servlet.SquareServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>SquareServlet</servlet-name>
+  	<url-pattern>/squareServlet</url-pattern>
   </servlet-mapping>
 </web-app>

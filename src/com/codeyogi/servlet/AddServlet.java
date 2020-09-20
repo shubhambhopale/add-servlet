@@ -1,6 +1,8 @@
 package com.codeyogi.servlet;
 
 import java.io.IOException;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -18,11 +20,14 @@ public class AddServlet extends HttpServlet {
 	 * @see HttpServlet#service(HttpServletRequest request, HttpServletResponse
 	 *      response)
 	 */
-	protected void service(HttpServletRequest request, HttpServletResponse response)
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		int k = Integer.parseInt(request.getParameter("num1")) + Integer.parseInt(request.getParameter("num2"));
+		int addition = Integer.parseInt(request.getParameter("num1")) + Integer.parseInt(request.getParameter("num2"));
 
-		response.getWriter().print("Addition is: " + k);
+		request.setAttribute("addition", addition);
+
+		RequestDispatcher rd = request.getRequestDispatcher("squareServlet");
+		rd.forward(request, response);
 	}
 
 }
